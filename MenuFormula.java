@@ -52,8 +52,9 @@ public class MenuFormula
 			carregarDadesArrayListCurses(fCurses,curses);
 			carregarDadesArrayListCircuits(fCircuits,circuits);
 
-			System.out.println(pilots.get(0).getLlistarPilot());
-			System.out.println(pilots.get(1).getLlistarPilot());
+			//System.out.println(pilots.get(0).getLlistarPilot());
+			//System.out.println(pilots.get(1).getLlistarPilot());
+			
 			System.out.println("-----------------");
 			System.out.println("    MAIN MENU    ");
 			System.out.println("-----------------");
