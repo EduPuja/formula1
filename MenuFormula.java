@@ -10,26 +10,34 @@ public class MenuFormula
 	{
 		Scanner lector = new Scanner(System.in);
 		
-		ArrayList<Pilot> listPilots = new ArrayList<Pilot>();
-		
 		//fitxerPilots Debian
-		File fPilots = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "pilots.txt");
+		//File fPilots = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "pilots.txt");
 		
 		//fitxerPilots Windows
-		//File fPilots = new File ("C:" + File.separator + "fitxers" + File.separator + "pilots.txt");
+		File fPilots = new File ("C:" + File.separator + "fitxers" + File.separator + "pilots.txt");
 		
 		//fitxerCircuits Debian
-		File fCircuits = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "circuits.txt");
+		//File fCircuits = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "circuits.txt");
 				
 		//fitxerCircuits Windows
-		//File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
+		File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
 		
 		//fitxerCurses Debian
-		File fCurses = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "curses.txt");
+		//File fCurses = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "curses.txt");
 						
 		//fitxerCurses Windows
-		//File fCurses = new File ("C:" + File.separator + "fitxers" + File.separator + "curses.txt");
-				
+		File fCurses = new File ("C:" + File.separator + "fitxers" + File.separator + "curses.txt");
+		
+		ArrayList<Pilot> pilots = new ArrayList<Pilot>();
+		ArrayList<Equip> equips = new ArrayList<Equip>();
+		ArrayList<Curses> curses = new ArrayList<Curses>();
+		ArrayList<Circuits> circuits = new ArrayList<Circuits>();
+		
+		/*
+		 * clasificacio final del les curses 
+		 * classificació del mundial de pilots 
+		 * classificació del mundial de constructors
+		*/
 				
 		boolean menu = false;
 		
@@ -41,8 +49,8 @@ public class MenuFormula
 			System.out.println("");
 			System.out.println("1 - Entrar ");
 			System.out.println("2 - Llistar");
-			System.out.println("3 - Esborrar");
-			System.out.println("4 - buscar");
+//			System.out.println("3 - Esborrar");
+//			System.out.println("4 - Buscar");
 			System.out.println("0 - Sortir");
 			
 			int opcioMenu = lector.nextInt();
@@ -63,17 +71,17 @@ public class MenuFormula
 							System.out.println("2 - Entrada circuits");
 							System.out.println("3 - Entrada curses");
 							System.out.println("0 - Tornar al menu princiapl");
-							int opcioLlistar =lector.nextInt();
+							int opcioEntrada =lector.nextInt();
 							lector.nextLine();
 							
-							switch(opcioLlistar)
+							switch(opcioEntrada)
 							{
 								case 1:
 										System.out.println("----------------------");
 										System.out.println("    ENTRADA PILOTS    ");
 										System.out.println("----------------------");
 										System.out.println("");
-										entradaPilots(listPilots, fPilots);
+										entradaPilots(pilots, fPilots);
 									break;
 								case 2:
 										System.out.println("------------------------");
@@ -110,8 +118,8 @@ public class MenuFormula
 							System.out.println("---------------");
 							System.out.println("");
 							System.out.println("1 - Classificacio final curses");
-							System.out.println("2 - Classi mundial pilots");
-							System.out.println("3 - classi mundial constructors");
+							System.out.println("2 - Classificacio mundial pilots");
+							System.out.println("3 - Classificacio mundial constructors");
 							System.out.println("0 - Tornar al menu princiapl");
 							int opcioLlistar =lector.nextInt();
 							lector.nextLine();
@@ -149,12 +157,6 @@ public class MenuFormula
 							}
 						}while(!menuLlistar);
 					break;
-				case 3:
-					// ESBORRAR
-					break;
-				case 4:
-					// BUSCAR
-					break;
 				case 0:
 						System.out.println("Fi programa.");
 						menu = true;
@@ -171,7 +173,20 @@ public class MenuFormula
 
 	private static void entradaPilots(ArrayList<Pilot> listPilots, File f1) 
 	{
-		
+		Scanner lector = new Scanner(System.in);
+		boolean menu = false;
+		String nom = "";
+		do 
+		{
+			System.out.println("Entra el nom del pilot: ");
+			nom = lector.nextLine();
+			if(!nom.equalsIgnoreCase("Sortir"))
+			{
+
+			}
+			else menu = true;
+			
+		}while(!menu);
 	}
 
 }
