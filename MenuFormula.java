@@ -13,19 +13,19 @@ public class MenuFormula
 		Scanner lector = new Scanner(System.in);
 		
 		//fitxerPilots Debian
-		File fPilots = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "pilots.txt");
+		File fPilots = new File (File.separator + "home" + File.separator + "daniel" + File.separator + "formula1" + File.separator + "pilots.txt");
 		
 		//fitxerPilots Windows
 		//File fPilots = new File ("C:" + File.separator + "fitxers" + File.separator + "pilots.txt");
 		
 		//fitxerCircuits Debian
-		File fCircuits = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "circuits.txt");
+		File fCircuits = new File (File.separator + "home" + File.separator + "daniel" + File.separator + "formula1" + File.separator + "circuits.txt");
 				
 		//fitxerCircuits Windows
 		//File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
 		
 		//fitxerCurses Debian
-		File fCurses = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "curses.txt");
+		File fCurses = new File (File.separator + "home" + File.separator + "daniel" + File.separator + "formula1" + File.separator + "curses.txt");
 						
 		//fitxerCurses Windows
 		//File fCurses = new File ("C:" + File.separator + "fitxers" + File.separator + "curses.txt");
@@ -52,7 +52,8 @@ public class MenuFormula
 			carregarDadesArrayListCurses(fCurses,curses);
 			carregarDadesArrayListCircuits(fCircuits,circuits);
 
-			System.out.println("nom: " + pilots.get(0).getLlistarPilot());
+			System.out.println(pilots.get(0).getLlistarPilot());
+			System.out.println(pilots.get(1).getLlistarPilot());
 			System.out.println("-----------------");
 			System.out.println("    MAIN MENU    ");
 			System.out.println("-----------------");
