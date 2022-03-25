@@ -1,8 +1,10 @@
 //package Formula1;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.PrintStream;
+import java.time.LocalDate;
 public class MenuFormula
 {
 
@@ -11,25 +13,24 @@ public class MenuFormula
 		Scanner lector = new Scanner(System.in);
 		
 		//fitxerPilots Debian
-		//File fPilots = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "pilots.txt");
+		File fPilots = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "pilots.txt");
 		
 		//fitxerPilots Windows
-		File fPilots = new File ("C:" + File.separator + "fitxers" + File.separator + "pilots.txt");
+		//File fPilots = new File ("C:" + File.separator + "fitxers" + File.separator + "pilots.txt");
 		
 		//fitxerCircuits Debian
-		//File fCircuits = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "circuits.txt");
+		File fCircuits = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "circuits.txt");
 				
 		//fitxerCircuits Windows
-		File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
+		//File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
 		
 		//fitxerCurses Debian
-		//File fCurses = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "curses.txt");
+		File fCurses = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "curses.txt");
 						
 		//fitxerCurses Windows
-		File fCurses = new File ("C:" + File.separator + "fitxers" + File.separator + "curses.txt");
+		//File fCurses = new File ("C:" + File.separator + "fitxers" + File.separator + "curses.txt");
 		
 		ArrayList<Pilot> pilots = new ArrayList<Pilot>();
-		ArrayList<Equip> equips = new ArrayList<Equip>();
 		ArrayList<Curses> curses = new ArrayList<Curses>();
 		ArrayList<Circuits> circuits = new ArrayList<Circuits>();
 		
@@ -43,6 +44,15 @@ public class MenuFormula
 		
 		do 
 		{
+			int numPilots = caluclNum(fPilots);
+			int numCircuits = caluclNum(fCircuits);
+			int numCurses = caluclNum(fCurses);
+
+			carregarDadesArrayListPilots(fPilots,pilots,numPilots);
+			carregarDadesArrayListCurses(fCurses,curses);
+			carregarDadesArrayListCircuits(fCircuits,circuits);
+
+			System.out.println("nom: " + pilots.get(0).getLlistarPilot());
 			System.out.println("-----------------");
 			System.out.println("    MAIN MENU    ");
 			System.out.println("-----------------");
@@ -71,7 +81,7 @@ public class MenuFormula
 							System.out.println("2 - Entrada circuits");
 							System.out.println("3 - Entrada curses");
 							System.out.println("0 - Tornar al menu princiapl");
-							int opcioEntrada =lector.nextInt();
+							int opcioEntrada = lector.nextInt();
 							lector.nextLine();
 							
 							switch(opcioEntrada)
@@ -106,6 +116,7 @@ public class MenuFormula
 									break;
 							}
 						}while(!menuEntrada);
+
 					break;
 				case 2:
 						// LLISTAR
@@ -170,6 +181,69 @@ public class MenuFormula
 		}while(!menu);
 
 	}
+	/**
+	 * Metode carregar dades pilots al seu arrayList
+	 * @param fPilots
+	 * @param pilots
+	 * @param numPilots
+	 */
+	private static void carregarDadesArrayListPilots(File fPilots, ArrayList<Pilot> pilots, int numPilots) 
+	{
+		try 
+		{
+			Scanner lectorF = new Scanner(fPilots);
+			lectorF.nextLine();
+			 
+			for(int i = 0; i < numPilots; i++)
+			{
+				Pilot conductor = new Pilot();
+				String dades = lectorF.nextLine();
+				
+				String [] taula = dades.split("#");
+					String nom = taula[0];
+					LocalDate dataNaix = converData(taula[1]);
+					int punts = Integer.parseInt(taula[2]);
+					String nomEquip = taula[3];
+
+				conductor.setTotPilot(nom, dataNaix, punts,nomEquip);
+				pilots.add(conductor);
+			}
+			lectorF.close();
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("Error: " + e);
+		}
+	}
+	private static void carregarDadesArrayListCurses(File fCurses, ArrayList<Curses> curses) 
+	{
+	}
+	private static void carregarDadesArrayListCircuits(File fCircuits, ArrayList<Circuits> circuits) 
+	{
+	}
+	
+	
+	/**
+	 * Metode que retorna el numero de files que te el fitxer
+	 * @param fPilots
+	 * @return
+	 */
+
+	private static int caluclNum(File f) 
+	{
+		try
+		{
+			Scanner lectorF = new Scanner(f);
+			int num = Integer.parseInt(lectorF.nextLine());
+			lectorF.close();
+			return num;
+		}
+		catch(Exception error)
+		{
+			System.out.println("Error: " + error);
+			return 0;
+		}
+	}
 
 	private static void entradaPilots(ArrayList<Pilot> listPilots, File f1) 
 	{
@@ -178,15 +252,39 @@ public class MenuFormula
 		String nom = "";
 		do 
 		{
+			Pilot conductor = new Pilot();
+
 			System.out.println("Entra el nom del pilot: ");
 			nom = lector.nextLine();
 			if(!nom.equalsIgnoreCase("Sortir"))
 			{
+				System.out.println("Entra la data de naixement del pilot: (dd/mm/aaaa)");
+				String auxDataNaix = lector.nextLine();
+				LocalDate dataNaix = converData(auxDataNaix);
 
+				System.out.println("Entra els punts que te el pilot: ");
+				int punts = lector.nextInt();
+				lector.nextLine();
+
+				System.out.println("Entra el nom del equip del pilot: ");
+				String nomEquip = lector.nextLine();
+
+				conductor.setTotPilot(nom, dataNaix, punts, nomEquip);
+				listPilots.add(conductor);
 			}
 			else menu = true;
 			
 		}while(!menu);
+	}
+
+	private static LocalDate converData(String data)
+	{
+		String [] taula = data.split("/");
+		int dia = Integer.parseInt(taula[0]);
+		int mes = Integer.parseInt(taula[1]);
+		int any = Integer.parseInt(taula[2]);
+		return LocalDate.of(any, mes, dia);
+		
 	}
 
 }

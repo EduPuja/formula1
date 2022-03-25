@@ -4,20 +4,20 @@ import java.time.LocalDate;
 
 Classe pilot aquesta classe hereda de la classe equip
 */
-public class Pilot extends Equip
+public class Pilot 
 {
         // hereadar de Equip
         private String nom;
         //private String nomEquip;
         private LocalDate dataNaix;
         private int puntuacio;
-
+        private String nomEquip;
         /**
          * Construcotr
          */
         public Pilot()
         {
-        	super();
+        	
         }
         
         /**
@@ -27,11 +27,13 @@ public class Pilot extends Equip
          * @param punts
          */
 
-        public void setTotPilot(String nomEntrat,LocalDate dataNaix,int punts)
+        public void setTotPilot( String nomEntrat,LocalDate dataNaix,int punts,String nomEquip)
         {
-         this.nom = nomEntrat;
-         this.dataNaix =dataNaix;
-         this.puntuacio = punts;
+            
+                this.nom = nomEntrat;
+                this.dataNaix =dataNaix;
+                this.puntuacio = punts;
+                this.nomEquip = nomEquip;
         }
         
         /**
