@@ -7,7 +7,7 @@ public class Circuits
     // !! variable que encara esta en discusio !!
     private int numVoltes;
     /**
-     * Constructor buit 
+     * Constructor buit  de cirucits
      */
     public Circuits()
     {
