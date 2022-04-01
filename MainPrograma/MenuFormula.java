@@ -1,10 +1,19 @@
+package MainPrograma;
 //package Formula1;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
+
+import Objectes.Circuits;
+import Objectes.Curses;
+
 import java.util.ArrayList;
 import java.io.File;
 import java.io.PrintStream;
 import java.time.LocalDate;
+
+// PACKAGES PERSONALS
+import Objectes.*;
+import Fitxers.*;
 public class MenuFormula
 {
 
