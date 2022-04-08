@@ -30,5 +30,25 @@ public abstract class Persona
         return this.dni +" "+this.nom +" "+this.dataNaix.getDayOfMonth()+"/"+this.dataNaix.getMonthValue()+"/"+this.dataNaix.getYear();
     }
 
+    /**
+      * metode que et retorna el nom - String
+     * @return
+     */
+        
+    public String getNom()
+    {
+        return this.nom;
+    }
+    
+    /**
+     * Metode que et retorna la data de naixament LOCALDATE
+     * @return
+     */
+    public LocalDate getDataNaix()
+    {
+  	 return this.dataNaix;
+    }
+        
+
 
 }
