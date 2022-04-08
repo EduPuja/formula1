@@ -211,12 +211,13 @@ public class MenuFormula
 				String dades = lectorF.nextLine();
 				
 				String [] taula = dades.split("#");
-					String nom = taula[0];
-					LocalDate dataNaix = converData(taula[1]);
-					int punts = Integer.parseInt(taula[2]);
-					String nomEquip = taula[3];
+					String dni = taula[0];
+					String nom = taula[1];
+					LocalDate dataNaix = converData(taula[2]);
+					int punts = Integer.parseInt(taula[3]);
+					String nomEquip = taula[4];
 
-				conductor.setTotPilot(nom, dataNaix, punts,nomEquip);
+				conductor.setTotPilot(dni,nom, dataNaix, punts,nomEquip);
 				pilots.add(conductor);
 			}
 			lectorF.close();
@@ -261,6 +262,7 @@ public class MenuFormula
 		Scanner lector = new Scanner(System.in);
 		boolean menu = false;
 		String nom = "";
+		String dni = "";
 		do 
 		{
 			Pilot conductor = new Pilot();
@@ -269,6 +271,9 @@ public class MenuFormula
 			nom = lector.nextLine();
 			if(!nom.equalsIgnoreCase("Sortir"))
 			{
+				System.out.println("Entra el dni del pilot: ");
+				dni = lector.nextLine();
+
 				System.out.println("Entra la data de naixement del pilot: (dd/mm/aaaa)");
 				String auxDataNaix = lector.nextLine();
 				LocalDate dataNaix = converData(auxDataNaix);
@@ -280,7 +285,7 @@ public class MenuFormula
 				System.out.println("Entra el nom del equip del pilot: ");
 				String nomEquip = lector.nextLine();
 
-				conductor.setTotPilot(nom, dataNaix, punts, nomEquip);
+				conductor.setTotPilot(dni,nom, dataNaix, punts, nomEquip);
 				listPilots.add(conductor);
 			}
 			else menu = true;
