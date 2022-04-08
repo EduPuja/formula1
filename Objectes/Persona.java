@@ -39,6 +39,10 @@ public abstract class Persona
     {
         return this.nom;
     }
+    public String getDni()
+    {
+        return this.dni;
+    }
     
     /**
      * Metode que et retorna la data de naixament LOCALDATE
