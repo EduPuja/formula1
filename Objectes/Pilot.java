@@ -37,10 +37,21 @@ public class Pilot extends Persona
        
        
         
-        
+        /**
+         * metode que et retorna un  valor
+         * @return
+         */
         public int getPunts()
         {
         	return this.puntuacio;
+        }
+        /**
+         * retorna el nom del equip
+         * @return
+         */
+        public String getNomEquip()
+        {
+                return this.nomEquip;
         }
         
         
