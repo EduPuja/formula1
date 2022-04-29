@@ -17,24 +17,25 @@ import Fitxers.*;
 public class MenuFormula
 {
 
+	static Scanner lector = new Scanner(System.in);
 	public static void main(String[] args) 
 	{
-		Scanner lector = new Scanner(System.in);
+		//Scanner lector = new Scanner(System.in);
 		
 		//fitxerPilots Debian
-		File fPilots = new File (File.separator + "home" + File.separator + "daniel" + File.separator + "formula1" + File.separator + "pilots.txt");
+		File fPilots = new File (File.separator + "home" + File.separator + "$HOME" + File.separator + "formula1" + File.separator + "pilots.txt");
 		
 		//fitxerPilots Windows
 		//File fPilots = new File ("C:" + File.separator + "fitxers" + File.separator + "pilots.txt");
 		
 		//fitxerCircuits Debian
-		File fCircuits = new File (File.separator + "home" + File.separator + "daniel" + File.separator + "formula1" + File.separator + "circuits.txt");
+		File fCircuits = new File (File.separator + "home" + File.separator + "$HOME" + File.separator + "formula1" + File.separator + "circuits.txt");
 				
 		//fitxerCircuits Windows
 		//File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
 		
 		//fitxerCurses Debian
-		File fCurses = new File (File.separator + "home" + File.separator + "daniel" + File.separator + "formula1" + File.separator + "curses.txt");
+		File fCurses = new File (File.separator + "home" + File.separator + "$HOME" + File.separator + "formula1" + File.separator + "curses.txt");
 						
 		//fitxerCurses Windows
 		//File fCurses = new File ("C:" + File.separator + "fitxers" + File.separator + "curses.txt");
@@ -121,6 +122,7 @@ public class MenuFormula
 								case 0:
 										System.out.println("Toranaràs al menu princiapl\n");
 										menuEntrada = true;
+										lector.close();
 									break;
 								default:
 										System.out.println("No tenim aquesta opcio");
@@ -259,7 +261,7 @@ public class MenuFormula
 
 	private static void entradaPilots(ArrayList<Pilot> listPilots, File f1) 
 	{
-		Scanner lector = new Scanner(System.in);
+		//Scanner lector = new Scanner(System.in);
 		boolean menu = false;
 		String nom = "";
 		String dni = "";
