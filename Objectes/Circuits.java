@@ -6,7 +6,7 @@ public class Circuits
     private int numCircut;
 
     // !! variable que encara esta en discusio !!
-    private int numVoltes;
+    private int numVoltes =1;
     /**
      * Constructor buit  de cirucits
      */
