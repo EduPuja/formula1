@@ -14,6 +14,7 @@ import java.time.LocalDate;
 // PACKAGES PERSONALS
 import Objectes.*;
 import Fitxers.*;
+import Funcions.EntradaPilots;
 public class MenuFormula
 {
 
@@ -100,7 +101,7 @@ public class MenuFormula
 										System.out.println("    ENTRADA PILOTS    ");
 										System.out.println("----------------------");
 										System.out.println("");
-										entradaPilots(pilots, fPilots);
+										EntradaPilots.entradaPilots(pilots, fPilots);
 									break;
 								case 2:
 										System.out.println("------------------------");
@@ -255,43 +256,6 @@ public class MenuFormula
 			return 0;
 		}
 	}
-
-	private static void entradaPilots(ArrayList<Pilot> listPilots, File f1) 
-	{
-		//Scanner lector = new Scanner(System.in);
-		boolean menu = false;
-		String nom = "";
-		String dni = "";
-		do 
-		{
-			Pilot conductor = new Pilot();
-
-			System.out.println("Entra el nom del pilot: ");
-			nom = lector.nextLine();
-			if(!nom.equalsIgnoreCase("Sortir"))
-			{
-				System.out.println("Entra el dni del pilot: ");
-				dni = lector.nextLine();
-
-				System.out.println("Entra la data de naixement del pilot: (dd/mm/aaaa)");
-				String auxDataNaix = lector.nextLine();
-				LocalDate dataNaix = converData(auxDataNaix);
-
-				System.out.println("Entra els punts que te el pilot: ");
-				int punts = lector.nextInt();
-				lector.nextLine();
-
-				System.out.println("Entra el nom del equip del pilot: ");
-				String nomEquip = lector.nextLine();
-
-				conductor.setTotPilot(dni,nom, dataNaix, punts, nomEquip);
-				listPilots.add(conductor);
-			}
-			else menu = true;
-			
-		}while(!menu);
-	}
-
 	private static LocalDate converData(String data)
 	{
 		String [] taula = data.split("/");
@@ -299,7 +263,5 @@ public class MenuFormula
 		int mes = Integer.parseInt(taula[1]);
 		int any = Integer.parseInt(taula[2]);
 		return LocalDate.of(any, mes, dia);
-		
 	}
-
 }
