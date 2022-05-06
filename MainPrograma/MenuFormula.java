@@ -1,7 +1,7 @@
 package MainPrograma;
 //package Formula1;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
+//import java.util.concurrent.ExecutionException;
 
 import Objectes.Circuits;
 import Objectes.Curses;
@@ -25,20 +25,17 @@ public class MenuFormula
 		//fitxerPilots Debian
 		File fPilots = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "pilots.txt");
 		
-		//fitxerPilots Windows
-		//File fPilots = new File ("C:" + File.separator + "fitxers" + File.separator + "pilots.txt");
+		
 		
 		//fitxerCircuits Debian
 		File fCircuits = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "circuits.txt");
-				
-		//fitxerCircuits Windows
+	
 		//File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
 		
 		//fitxerCurses Debian
 		File fCurses = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "curses.txt");
 						
-		//fitxerCurses Windows
-		//File fCurses = new File ("C:" + File.separator + "fitxers" + File.separator + "curses.txt");
+		
 		
 		ArrayList<Pilot> pilots = new ArrayList<Pilot>();
 		ArrayList<Curses> curses = new ArrayList<Curses>();

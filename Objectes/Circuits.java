@@ -23,6 +23,7 @@ public class Circuits
     {
         this.nomCircut=nom;
         this.numCircut=num;
+        this.numVoltes++;
     }
     /**
      * metode que crea un cicuit
@@ -33,6 +34,7 @@ public class Circuits
     {
         this.nomCircut =nom;
         this.numCircut = num;
+        this.numVoltes++;
     }
     /**
      * Metode que et retorna tota la informacio de una Circuit
