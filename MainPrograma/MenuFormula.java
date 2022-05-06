@@ -24,17 +24,18 @@ public class MenuFormula
 		//Scanner lector = new Scanner(System.in);
 		
 		//fitxerPilots Debian
-		File fPilots = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "pilots.txt");
+		File fPilots =  new File("$HOME"+File.separator+"formula1"+File.separator+"Fitxers"+File.separator+"pilots.txt");
 		
+		//File fitxerExemple = new File("$HOME"+File.separator+"formula1"+File.separator+"Fitxers"+File.separator+" ");
 		
 		
 		//fitxerCircuits Debian
-		File fCircuits = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "circuits.txt");
+		File fCircuits = new File("$HOME"+File.separator+"formula1"+File.separator+"Fitxers"+File.separator+"circuits.txt");
 	
 		//File fCircuits = new File ("C:" + File.separator + "fitxers" + File.separator + "circuits.txt");
 		
 		//fitxerCurses Debian
-		File fCurses = new File (File.separator + "home" + File.separator + "$USER" + File.separator + "formula1" + File.separator + "curses.txt");
+		File fCurses = new File("$HOME"+File.separator+"formula1"+File.separator+"Fitxers"+File.separator+"curses.txt");
 						
 		
 		
@@ -120,7 +121,7 @@ public class MenuFormula
 								case 0:
 										System.out.println("Toranaràs al menu princiapl\n");
 										menuEntrada = true;
-										lector.close();
+
 									break;
 								default:
 										System.out.println("No tenim aquesta opcio");
